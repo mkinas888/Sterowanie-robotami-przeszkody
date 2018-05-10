@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Sterowanie robotem mobilnym: Plik źródłowy Zbior_Wierzcholkow.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Sterowanie robotem mobilnym
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&#160;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_zbior___wierzcholkow_8hh_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Zbior_Wierzcholkow.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_zbior___wierzcholkow_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ZBIOR_WIERZCHOLKOW_HH</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ZBIOR_WIERZCHOLKOW_HH</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_wektor2_d_8hh.html">Wektor2D.hh</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_zbior___wierzcholkow.html">Zbior_Wierzcholkow</a> {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#a4e6fbff7ddd47766cdb7608e69de469b">   27</a></span>&#160;  std::vector &lt; Wektor2D &gt; <a class="code" href="class_zbior___wierzcholkow.html#a4e6fbff7ddd47766cdb7608e69de469b">ZW</a>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#a8b32a071e9eb642c6f2abb663a1dfabd">   35</a></span>&#160;  <a class="code" href="class_zbior___wierzcholkow.html#a8b32a071e9eb642c6f2abb663a1dfabd">Zbior_Wierzcholkow</a>()</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  }</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#a664bd4f8012ff94e2837386b6747c504">   38</a></span>&#160;  <a class="code" href="class_zbior___wierzcholkow.html#a664bd4f8012ff94e2837386b6747c504">~Zbior_Wierzcholkow</a>()</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  };</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#ace978521aa58f3db825d7c759dee7642">   46</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_zbior___wierzcholkow.html#ace978521aa58f3db825d7c759dee7642">Usun</a> () {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ZW.clear();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> Dodaj (<span class="keyword">const</span> <a class="code" href="class_s_wektor.html">Wektor2D</a>&amp; W);</div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#abb2e9386f942bf2055684532c6c72b56">   55</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_zbior___wierzcholkow.html#abb2e9386f942bf2055684532c6c72b56">RozmiarZbioru</a> ()<span class="keyword"> const</span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">  </span>{</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> ZW.size();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#ab332c3d7eb1ed417bbbaa55a42f0614c">   63</a></span>&#160;  <a class="code" href="class_s_wektor.html">Wektor2D</a> operator [ ](<span class="keywordtype">int</span> i)<span class="keyword"> const</span></div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">  </span>{</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> ZW[i];</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  </div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_zbior___wierzcholkow.html#ada1d717ea485b8a6077019d89b31d100">   68</a></span>&#160;  <a class="code" href="class_s_wektor.html">Wektor2D</a>&amp; operator [ ](<span class="keywordtype">int</span> i)</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  {</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> ZW[i];</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  }</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="_zbior___wierzcholkow_8hh.html#a219648f3cc56c9348666f64178e70c55">operator &lt;&lt; </a>(std::ostream&amp; Strm,</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keyword">const</span> <a class="code" href="class_zbior___wierzcholkow.html">Zbior_Wierzcholkow</a>&amp; Zw);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  </div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;std::ostream&amp; <a class="code" href="_zbior___wierzcholkow_8hh.html#a219648f3cc56c9348666f64178e70c55">operator &lt;&lt; </a>(std::ostream&amp; Strm, <span class="keyword">const</span> <a class="code" href="class_zbior___wierzcholkow.html">Zbior_Wierzcholkow</a>&amp; Zw);</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="class_s_wektor_html"><div class="ttname"><a href="class_s_wektor.html">SWektor&lt; double, 2 &gt;</a></div></div>
+<div class="ttc" id="class_zbior___wierzcholkow_html"><div class="ttname"><a href="class_zbior___wierzcholkow.html">Zbior_Wierzcholkow</a></div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8hh_source.html#l00017">Zbior_Wierzcholkow.hh:17</a></div></div>
+<div class="ttc" id="class_zbior___wierzcholkow_html_ace978521aa58f3db825d7c759dee7642"><div class="ttname"><a href="class_zbior___wierzcholkow.html#ace978521aa58f3db825d7c759dee7642">Zbior_Wierzcholkow::Usun</a></div><div class="ttdeci">void Usun()</div><div class="ttdoc">Metoda pozwalająca na usuniecie elementow ze zbioru wierzcholkow. </div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8hh_source.html#l00046">Zbior_Wierzcholkow.hh:46</a></div></div>
+<div class="ttc" id="class_zbior___wierzcholkow_html_a664bd4f8012ff94e2837386b6747c504"><div class="ttname"><a href="class_zbior___wierzcholkow.html#a664bd4f8012ff94e2837386b6747c504">Zbior_Wierzcholkow::~Zbior_Wierzcholkow</a></div><div class="ttdeci">~Zbior_Wierzcholkow()</div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8hh_source.html#l00038">Zbior_Wierzcholkow.hh:38</a></div></div>
+<div class="ttc" id="_wektor2_d_8hh_html"><div class="ttname"><a href="_wektor2_d_8hh.html">Wektor2D.hh</a></div><div class="ttdoc">Wektor przestrzeni dwuwymiarowej. </div></div>
+<div class="ttc" id="class_zbior___wierzcholkow_html_a8b32a071e9eb642c6f2abb663a1dfabd"><div class="ttname"><a href="class_zbior___wierzcholkow.html#a8b32a071e9eb642c6f2abb663a1dfabd">Zbior_Wierzcholkow::Zbior_Wierzcholkow</a></div><div class="ttdeci">Zbior_Wierzcholkow()</div><div class="ttdoc">Konstruktor oraz destruktor zbioru wierzchołków. </div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8hh_source.html#l00035">Zbior_Wierzcholkow.hh:35</a></div></div>
+<div class="ttc" id="class_zbior___wierzcholkow_html_a4e6fbff7ddd47766cdb7608e69de469b"><div class="ttname"><a href="class_zbior___wierzcholkow.html#a4e6fbff7ddd47766cdb7608e69de469b">Zbior_Wierzcholkow::ZW</a></div><div class="ttdeci">std::vector&lt; Wektor2D &gt; ZW</div><div class="ttdoc">Modeluje pojęcie Zbioru wierzchołków. </div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8hh_source.html#l00027">Zbior_Wierzcholkow.hh:27</a></div></div>
+<div class="ttc" id="class_zbior___wierzcholkow_html_abb2e9386f942bf2055684532c6c72b56"><div class="ttname"><a href="class_zbior___wierzcholkow.html#abb2e9386f942bf2055684532c6c72b56">Zbior_Wierzcholkow::RozmiarZbioru</a></div><div class="ttdeci">int RozmiarZbioru() const </div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8hh_source.html#l00055">Zbior_Wierzcholkow.hh:55</a></div></div>
+<div class="ttc" id="_zbior___wierzcholkow_8hh_html_a219648f3cc56c9348666f64178e70c55"><div class="ttname"><a href="_zbior___wierzcholkow_8hh.html#a219648f3cc56c9348666f64178e70c55">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;Strm, const Zbior_Wierzcholkow &amp;Zw)</div><div class="ttdoc">Przeciązenie pozwalające na bezpośrednie wyświetlanie tablicy wierzchołków. </div><div class="ttdef"><b>Definition:</b> <a href="_zbior___wierzcholkow_8cpp_source.html#l00018">Zbior_Wierzcholkow.cpp:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4aa64b0872d36146e049722e293482e3.html">prj</a></li><li class="navelem"><a class="el" href="dir_72345776cd6700fb0dedb8f1faaa0c00.html">inc</a></li><li class="navelem"><a class="el" href="_zbior___wierzcholkow_8hh.html">Zbior_Wierzcholkow.hh</a></li>
+    <li class="footer">Wygenerowano przez
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

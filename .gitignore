@@ -1,0 +1,4 @@
+#Ignore all .o files
+**/obj
+/prj/robot_scena
+log

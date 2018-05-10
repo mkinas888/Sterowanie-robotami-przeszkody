@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Sterowanie robotem mobilnym: Plik źródłowy Scena.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Sterowanie robotem mobilnym
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&#160;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_scena_8hh_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Scena.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_scena_8hh.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SCENA_HH</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SCENA_HH</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_robot_8hh.html">Robot.hh</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sciezka_8hh.html">Sciezka.hh</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_scena.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scena.html">Scena</a> {</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_scena.html#a2bc3c3e5e5951b18cd9a7dcf4c055045">   25</a></span>&#160;  <a class="code" href="class_robot.html">Robot</a> <a class="code" href="class_scena.html#a2bc3c3e5e5951b18cd9a7dcf4c055045">R</a>;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_scena.html#affcd667eb02c24a4a32373a0648ed2a7">   26</a></span>&#160;  <a class="code" href="class_sciezka.html">Sciezka</a> <a class="code" href="class_scena.html#affcd667eb02c24a4a32373a0648ed2a7">S</a>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  </div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_scena.html#a8f9fe11b4cfef890123a2acc94672e17">   33</a></span>&#160;  <a class="code" href="class_scena.html#a8f9fe11b4cfef890123a2acc94672e17">Scena</a>(){}</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_scena.html#a1606ae6f71f2a237eca88e109c23322e">   35</a></span>&#160;  <a class="code" href="class_scena.html#a1606ae6f71f2a237eca88e109c23322e">Scena</a> (<a class="code" href="class_s_wektor.html">Wektor2D</a> WekInit) : R(WekInit) {};</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_scena.html#ad882b3d3c934c64c5e90a63246a47943">   37</a></span>&#160;  <a class="code" href="class_scena.html#ad882b3d3c934c64c5e90a63246a47943">~Scena</a>(){}</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  </div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_scena.html#a4f6272cb476c8083d9f712307f2605d1">   43</a></span>&#160;  <a class="code" href="class_robot.html">Robot</a> <a class="code" href="class_scena.html#a4f6272cb476c8083d9f712307f2605d1">WezR</a> ()<span class="keyword"> const </span>{</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_scena.html#a2bc3c3e5e5951b18cd9a7dcf4c055045">R</a>;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_scena.html#a74f8e4c7f7f7dd3774e882fb775f3cbc">   51</a></span>&#160;  <a class="code" href="class_sciezka.html">Sciezka</a> <a class="code" href="class_scena.html#a74f8e4c7f7f7dd3774e882fb775f3cbc">WezS</a> ()<span class="keyword"> const </span>{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_scena.html#affcd667eb02c24a4a32373a0648ed2a7">S</a>;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_scena.html#aa96b6cd5d8d6a5a69279d0ccf4ea5748">   59</a></span>&#160;  <a class="code" href="class_s_wektor.html">Wektor2D</a> <a class="code" href="class_scena.html#aa96b6cd5d8d6a5a69279d0ccf4ea5748">PokazPolozenie</a> ()<span class="keyword"> const </span>{</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> R.<a class="code" href="class_robot.html#a4b6958b1c4e09ffac23bf2883b5bfb6b">ZwrocPolozenie</a>();</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_scena.html#a6a1859a350da93b87eaa7d6781d6f709">   67</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_scena.html#a6a1859a350da93b87eaa7d6781d6f709">ZapiszSciezke</a> () {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="class_s_wektor.html">Wektor2D</a> Tmp = <a class="code" href="class_scena.html#aa96b6cd5d8d6a5a69279d0ccf4ea5748">PokazPolozenie</a>();</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    S.<a class="code" href="class_sciezka.html#a56fa0e4a3333ea8ba2f0664d39f18ca1">Dodaj</a>(Tmp);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_scena.html#a496f872f437ea7f3cb3262ea652e3b7c">   77</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_scena.html#a496f872f437ea7f3cb3262ea652e3b7c">Przesun</a> (<span class="keyword">const</span> <a class="code" href="class_s_wektor.html">Wektor2D</a>&amp; W)</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    R.<a class="code" href="class_robot.html#a04e9ef976aec3f0988be7d0c63de1b83">Przesun</a>(W);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    S.<a class="code" href="class_sciezka.html#a437cb17b48a5b5763894d0e28ea68c3a">Przesun</a>(W);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_scena.html#adfe0096af30eaac93f4a065fd9a36165">   87</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_scena.html#adfe0096af30eaac93f4a065fd9a36165">JazdaAnimuj</a> (<span class="keywordtype">double</span> Dlugosc)</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    R.<a class="code" href="class_robot.html#a9d0197244d6770b0fa4bd4f535e1898f">Jedz</a>(Dlugosc);</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  }</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_scena.html#aafdbddba2d870aa134992e219ccab39e">   96</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_scena.html#aafdbddba2d870aa134992e219ccab39e">ObrotAnimuj</a> (<span class="keywordtype">int</span> Kat) {</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      R.<a class="code" href="class_robot.html#aa3e9a7440c1b0d2469b3d754918ad2a3">Obroc</a>(Kat);</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_scena.html#aaf381fa033340a64e097945d6fb3209c">  100</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_scena.html#aaf381fa033340a64e097945d6fb3209c">ZmienPredkosc</a> (<span class="keywordtype">double</span> Szybkosc) {</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    R.<a class="code" href="class_robot.html#a1c73dd31828d8c933dae4d4d841a03ae">ZmienSzybkosc</a>(Szybkosc);</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  }</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="class_scena.html#ab013199f1e06ac33670215075c76a59d">  104</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_scena.html#ab013199f1e06ac33670215075c76a59d">SkalujRobota</a> (<span class="keywordtype">double</span> Scale) {</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    R.<a class="code" href="class_robot.html#a1171e66db2618c0857314cfcec7c04aa">ZmienRozmiarRobota</a>(Scale);</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_scena.html#a66a10bf36565abee70e2fc5abe2b524b">RZapiszDoPliku</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>  *sNazwaPliku);</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_scena.html#a22d5b4d978c7daf84096eec15dc98df8">SZapiszDoPliku</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>  *sNazwaPliku);</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  </div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  </div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div><div class="ttc" id="class_scena_html_a2bc3c3e5e5951b18cd9a7dcf4c055045"><div class="ttname"><a href="class_scena.html#a2bc3c3e5e5951b18cd9a7dcf4c055045">Scena::R</a></div><div class="ttdeci">Robot R</div><div class="ttdoc">Modeluje pojęcie sceny. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00025">Scena.hh:25</a></div></div>
+<div class="ttc" id="class_robot_html_a4b6958b1c4e09ffac23bf2883b5bfb6b"><div class="ttname"><a href="class_robot.html#a4b6958b1c4e09ffac23bf2883b5bfb6b">Robot::ZwrocPolozenie</a></div><div class="ttdeci">Wektor2D ZwrocPolozenie() const </div><div class="ttdoc">Metoda zwracająca wektor współrzędnych środka robota. </div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hh_source.html#l00071">Robot.hh:71</a></div></div>
+<div class="ttc" id="class_robot_html_a1c73dd31828d8c933dae4d4d841a03ae"><div class="ttname"><a href="class_robot.html#a1c73dd31828d8c933dae4d4d841a03ae">Robot::ZmienSzybkosc</a></div><div class="ttdeci">void ZmienSzybkosc(double NowaSzybkosc)</div><div class="ttdoc">Metoda pozwalająca zmieniać szybkość robota. </div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hh_source.html#l00056">Robot.hh:56</a></div></div>
+<div class="ttc" id="class_robot_html_aa3e9a7440c1b0d2469b3d754918ad2a3"><div class="ttname"><a href="class_robot.html#aa3e9a7440c1b0d2469b3d754918ad2a3">Robot::Obroc</a></div><div class="ttdeci">void Obroc(int _Kat)</div><div class="ttdoc">Metoda pozwalająca obracać robota o zadany kąt. </div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00100">Robot.cpp:100</a></div></div>
+<div class="ttc" id="class_scena_html_aa96b6cd5d8d6a5a69279d0ccf4ea5748"><div class="ttname"><a href="class_scena.html#aa96b6cd5d8d6a5a69279d0ccf4ea5748">Scena::PokazPolozenie</a></div><div class="ttdeci">Wektor2D PokazPolozenie() const </div><div class="ttdoc">Metoda pozwalajaca na dostep do polozenia robota. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00059">Scena.hh:59</a></div></div>
+<div class="ttc" id="class_robot_html_a04e9ef976aec3f0988be7d0c63de1b83"><div class="ttname"><a href="class_robot.html#a04e9ef976aec3f0988be7d0c63de1b83">Robot::Przesun</a></div><div class="ttdeci">void Przesun(const Wektor2D &amp;W)</div><div class="ttdoc">Metoda pozwalająca na przesunięcie robota o wektor. </div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00082">Robot.cpp:82</a></div></div>
+<div class="ttc" id="class_scena_html_aafdbddba2d870aa134992e219ccab39e"><div class="ttname"><a href="class_scena.html#aafdbddba2d870aa134992e219ccab39e">Scena::ObrotAnimuj</a></div><div class="ttdeci">void ObrotAnimuj(int Kat)</div><div class="ttdoc">Metoda animujaca obrot robota. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00096">Scena.hh:96</a></div></div>
+<div class="ttc" id="class_s_wektor_html"><div class="ttname"><a href="class_s_wektor.html">SWektor&lt; double, 2 &gt;</a></div></div>
+<div class="ttc" id="class_scena_html_a8f9fe11b4cfef890123a2acc94672e17"><div class="ttname"><a href="class_scena.html#a8f9fe11b4cfef890123a2acc94672e17">Scena::Scena</a></div><div class="ttdeci">Scena()</div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00033">Scena.hh:33</a></div></div>
+<div class="ttc" id="class_scena_html_ab013199f1e06ac33670215075c76a59d"><div class="ttname"><a href="class_scena.html#ab013199f1e06ac33670215075c76a59d">Scena::SkalujRobota</a></div><div class="ttdeci">void SkalujRobota(double Scale)</div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00104">Scena.hh:104</a></div></div>
+<div class="ttc" id="class_scena_html_a6a1859a350da93b87eaa7d6781d6f709"><div class="ttname"><a href="class_scena.html#a6a1859a350da93b87eaa7d6781d6f709">Scena::ZapiszSciezke</a></div><div class="ttdeci">void ZapiszSciezke()</div><div class="ttdoc">Metoda zapisujaca obecne polozenie robota do sciezki. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00067">Scena.hh:67</a></div></div>
+<div class="ttc" id="class_robot_html"><div class="ttname"><a href="class_robot.html">Robot</a></div><div class="ttdef"><b>Definition:</b> <a href="_robot_8hh_source.html#l00019">Robot.hh:19</a></div></div>
+<div class="ttc" id="class_sciezka_html_a437cb17b48a5b5763894d0e28ea68c3a"><div class="ttname"><a href="class_sciezka.html#a437cb17b48a5b5763894d0e28ea68c3a">Sciezka::Przesun</a></div><div class="ttdeci">void Przesun(const Wektor2D &amp;W)</div><div class="ttdoc">Metoda pozwalajaca przesunac sciezke o zadany wektor. </div><div class="ttdef"><b>Definition:</b> <a href="_sciezka_8cpp_source.html#l00026">Sciezka.cpp:26</a></div></div>
+<div class="ttc" id="class_scena_html_a4f6272cb476c8083d9f712307f2605d1"><div class="ttname"><a href="class_scena.html#a4f6272cb476c8083d9f712307f2605d1">Scena::WezR</a></div><div class="ttdeci">Robot WezR() const </div><div class="ttdoc">Metoda pozwalajaca na dostep do robota. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00043">Scena.hh:43</a></div></div>
+<div class="ttc" id="class_scena_html_ad882b3d3c934c64c5e90a63246a47943"><div class="ttname"><a href="class_scena.html#ad882b3d3c934c64c5e90a63246a47943">Scena::~Scena</a></div><div class="ttdeci">~Scena()</div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00037">Scena.hh:37</a></div></div>
+<div class="ttc" id="class_sciezka_html_a56fa0e4a3333ea8ba2f0664d39f18ca1"><div class="ttname"><a href="class_sciezka.html#a56fa0e4a3333ea8ba2f0664d39f18ca1">Sciezka::Dodaj</a></div><div class="ttdeci">void Dodaj(Wektor2D &amp;W)</div><div class="ttdoc">Metoda pozwalajaca dodac wektor do ścieżki. </div><div class="ttdef"><b>Definition:</b> <a href="_sciezka_8cpp_source.html#l00016">Sciezka.cpp:16</a></div></div>
+<div class="ttc" id="class_scena_html_adfe0096af30eaac93f4a065fd9a36165"><div class="ttname"><a href="class_scena.html#adfe0096af30eaac93f4a065fd9a36165">Scena::JazdaAnimuj</a></div><div class="ttdeci">void JazdaAnimuj(double Dlugosc)</div><div class="ttdoc">Metoda animujaca jazde robota. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00087">Scena.hh:87</a></div></div>
+<div class="ttc" id="_robot_8hh_html"><div class="ttname"><a href="_robot_8hh.html">Robot.hh</a></div><div class="ttdoc">Definicja klasy Robot. </div></div>
+<div class="ttc" id="class_sciezka_html"><div class="ttname"><a href="class_sciezka.html">Sciezka</a></div><div class="ttdef"><b>Definition:</b> <a href="_sciezka_8hh_source.html#l00016">Sciezka.hh:16</a></div></div>
+<div class="ttc" id="_sciezka_8hh_html"><div class="ttname"><a href="_sciezka_8hh.html">Sciezka.hh</a></div><div class="ttdoc">Definicja klasy Sciezka. </div></div>
+<div class="ttc" id="class_scena_html_a66a10bf36565abee70e2fc5abe2b524b"><div class="ttname"><a href="class_scena.html#a66a10bf36565abee70e2fc5abe2b524b">Scena::RZapiszDoPliku</a></div><div class="ttdeci">bool RZapiszDoPliku(const char *sNazwaPliku)</div><div class="ttdoc">Metody zapisujaca robota do pliku. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8cpp_source.html#l00010">Scena.cpp:10</a></div></div>
+<div class="ttc" id="class_scena_html_affcd667eb02c24a4a32373a0648ed2a7"><div class="ttname"><a href="class_scena.html#affcd667eb02c24a4a32373a0648ed2a7">Scena::S</a></div><div class="ttdeci">Sciezka S</div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00026">Scena.hh:26</a></div></div>
+<div class="ttc" id="class_scena_html_a496f872f437ea7f3cb3262ea652e3b7c"><div class="ttname"><a href="class_scena.html#a496f872f437ea7f3cb3262ea652e3b7c">Scena::Przesun</a></div><div class="ttdeci">void Przesun(const Wektor2D &amp;W)</div><div class="ttdoc">Metoda pozwalająca przesunąć całą scenę o zadany wektor. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00077">Scena.hh:77</a></div></div>
+<div class="ttc" id="class_robot_html_a1171e66db2618c0857314cfcec7c04aa"><div class="ttname"><a href="class_robot.html#a1171e66db2618c0857314cfcec7c04aa">Robot::ZmienRozmiarRobota</a></div><div class="ttdeci">void ZmienRozmiarRobota(double Skala)</div><div class="ttdoc">Metoda skalujaca robota. </div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00061">Robot.cpp:61</a></div></div>
+<div class="ttc" id="class_scena_html_aaf381fa033340a64e097945d6fb3209c"><div class="ttname"><a href="class_scena.html#aaf381fa033340a64e097945d6fb3209c">Scena::ZmienPredkosc</a></div><div class="ttdeci">void ZmienPredkosc(double Szybkosc)</div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00100">Scena.hh:100</a></div></div>
+<div class="ttc" id="class_scena_html_a22d5b4d978c7daf84096eec15dc98df8"><div class="ttname"><a href="class_scena.html#a22d5b4d978c7daf84096eec15dc98df8">Scena::SZapiszDoPliku</a></div><div class="ttdeci">bool SZapiszDoPliku(const char *sNazwaPliku)</div><div class="ttdoc">Metoda zapisujaca sciezke do pliku. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8cpp_source.html#l00032">Scena.cpp:32</a></div></div>
+<div class="ttc" id="class_scena_html_a1606ae6f71f2a237eca88e109c23322e"><div class="ttname"><a href="class_scena.html#a1606ae6f71f2a237eca88e109c23322e">Scena::Scena</a></div><div class="ttdeci">Scena(Wektor2D WekInit)</div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00035">Scena.hh:35</a></div></div>
+<div class="ttc" id="class_scena_html"><div class="ttname"><a href="class_scena.html">Scena</a></div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00016">Scena.hh:16</a></div></div>
+<div class="ttc" id="class_robot_html_a9d0197244d6770b0fa4bd4f535e1898f"><div class="ttname"><a href="class_robot.html#a9d0197244d6770b0fa4bd4f535e1898f">Robot::Jedz</a></div><div class="ttdeci">void Jedz(double Dlugosc)</div><div class="ttdoc">Metoda przelicza dlugosc na wektor przesuniecia robota. </div><div class="ttdef"><b>Definition:</b> <a href="_robot_8cpp_source.html#l00087">Robot.cpp:87</a></div></div>
+<div class="ttc" id="class_scena_html_a74f8e4c7f7f7dd3774e882fb775f3cbc"><div class="ttname"><a href="class_scena.html#a74f8e4c7f7f7dd3774e882fb775f3cbc">Scena::WezS</a></div><div class="ttdeci">Sciezka WezS() const </div><div class="ttdoc">Metoda pozwalajaca na dostep do sciezki. </div><div class="ttdef"><b>Definition:</b> <a href="_scena_8hh_source.html#l00051">Scena.hh:51</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4aa64b0872d36146e049722e293482e3.html">prj</a></li><li class="navelem"><a class="el" href="dir_72345776cd6700fb0dedb8f1faaa0c00.html">inc</a></li><li class="navelem"><a class="el" href="_scena_8hh.html">Scena.hh</a></li>
+    <li class="footer">Wygenerowano przez
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>
