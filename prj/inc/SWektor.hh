@@ -1,6 +1,7 @@
 #ifndef SWEKTOR_HH
 #define SWEKTOR_HH
 
+
 /*!
  * \file
  * \brief  Definicja szablonu SWektor
@@ -30,6 +31,7 @@ class SWektor {
     *
     *  Tablica zawiera kolejne współrzędne wektora.
     */
+    static int LWszystkich, LObecnych;
     STyp  TabWektor[SWymiar];
   public:
    /*!
@@ -39,14 +41,34 @@ class SWektor {
     */
     SWektor() {
       for(int i = 0; i < SWymiar; i++) TabWektor[i] = 0;
-    }
+      ++LWszystkich;
+      ++LObecnych;
+      }
     /*!
     * \brief Inicjaliuje obiek wartościami x i y
     */
     SWektor(double x, double y) {
       TabWektor[0] = x; TabWektor[1] = y;
+      ++LWszystkich;
+      ++LObecnych;
       }
 
+    // ~SWektor() {
+    //   LObecnych--;
+    // }
+
+    // SWektor(const SWektor &W) {*this = W;}
+
+
+  static int WezLWszystkich() {
+    return LWszystkich;
+  }
+
+  static int WezLObecnych() {
+    return LObecnych;
+  }
+
+  
    /*!
     * \brief Dostęp poprzez indeks do współrzędnych wektora w trybie \e tylko \e do \e odczytu.
     *
@@ -86,7 +108,8 @@ class SWektor {
     /*!
     * \brief Pozwala na przypisanie wartosci do wektora
     */
-    SWektor<STyp,SWymiar> operator = (const SWektor<STyp,SWymiar> &W);
+    SWektor<STyp,SWymiar> & operator = (const SWektor<STyp,SWymiar> &W);
+    bool operator == (const SWektor<STyp,SWymiar> &W);
 
 };
 
@@ -97,12 +120,23 @@ class SWektor {
  *  \return Wynik operacji przypisania.
  */
 template <typename STyp, int SWymiar>
-SWektor<STyp,SWymiar> SWektor<STyp,SWymiar>::operator = (const SWektor<STyp,SWymiar> &W)
+SWektor<STyp,SWymiar> & SWektor<STyp,SWymiar>::operator = (const SWektor<STyp,SWymiar> &W)
 {
   for(unsigned int i = 0; i < SWymiar; i++){
       (*this)[i] = W[i];
   }
   return *this;
+}
+
+template <typename STyp, int SWymiar>
+bool SWektor<STyp,SWymiar>::operator == (const SWektor<STyp,SWymiar> &W)
+{
+  for(unsigned int i = 0; i < SWymiar; i++){
+    if((*this)[i] != W[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /*!
@@ -184,6 +218,10 @@ std::ostream& operator << (std::ostream &StrmWyj, const SWektor<STyp,SWymiar>& W
  * \param[in] W - Wektor do którego zapisujemy podane wartości
  * \param[out] Strm - Strumień z wczytanym wektorem
  */
+  template <typename STyp, int SWymiar>
+  int SWektor<STyp,SWymiar>::LWszystkich = 0;
+  template <typename STyp, int SWymiar>
+  int SWektor<STyp,SWymiar>::LObecnych = 0;
 
   template <typename STyp, int SWymiar>
   std::istream& operator >> (std::istream &Strm, SWektor<STyp,SWymiar> &W) {

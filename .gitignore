@@ -1,4 +1,8 @@
 #Ignore all .o files
 **/obj
 /prj/robot_scena
-log
+#Ignore dox directory
+**/dox
+#Ignore figury directory
+**/figury
+*.json

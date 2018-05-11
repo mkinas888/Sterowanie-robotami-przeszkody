@@ -1,8 +1,9 @@
-#ifndef SCIEZKA_HH
-#define SCIEZKA_HH
+#ifndef PRZESZKODA_HH
+#define PRZESZKODA_HH
 #include <iostream>
 #include <fstream>
 #include "Zbior_Wierzcholkow.hh"
+#include "Macierz2x2.hh"
 #include "ObiektGraficzny.hh"
 
 /*!
@@ -13,7 +14,7 @@
  */
 
 
-class Sciezka : public ObiektGraficzny {
+class Przeszkoda : public ObiektGraficzny {
 
   /*!
  * \brief Modeluje pojęcie sciezki robota
@@ -23,6 +24,8 @@ class Sciezka : public ObiektGraficzny {
  */
 
   Zbior_Wierzcholkow ZW_lok;
+  Wektor2D Srodek;
+  int Kat;
 
 public:
   /*!
@@ -30,24 +33,25 @@ public:
    * robota.
    */
 
-  Sciezka()
+  Przeszkoda()
   {
   }
 
-  Sciezka(const Wektor2D &W) {
-    ZW.Dodaj(W);
-    Polozenie = W;
-  }
+  Przeszkoda(double x, double y, double Wysokosc, double Szerokosc);
+  Przeszkoda(double x, double y, double Wysokosc, double Szerokosc, int Obr);
 
   /*!
    * /brief Destruktor ścieżki 
    */
   
-  ~Sciezka()
+  ~Przeszkoda()
   {
   }
 
-  virtual const char* NazwaTypu() const {return "Sciezka";}
+  virtual const char* NazwaTypu() const {return "Przeszkoda";}
+  Wektor2D ZwrocPolozenie() const {return Polozenie;}
+  Wektor2D Lok2Glob(Wektor2D in);
+  void Przelicz(void);
   /*! 
    * Metoda pozwalająca na dodanie kolejnego wektora z miejsca w którym 
    * znajduje się robot.
@@ -60,6 +64,8 @@ public:
    */
 
   void Przesun (const Wektor2D& W);
+  void Obroc (int Obr);
+  void ZmienRozmiar (double Szer, double Wys);
 
 };
 

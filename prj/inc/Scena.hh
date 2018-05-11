@@ -2,8 +2,15 @@
 #define SCENA_HH
 
 #include <iostream>
+#include <memory>
+#include <list>
+#include <string>
 #include "Robot.hh"
 #include "Sciezka.hh"
+#include "ObiektGraficzny.hh"
+#include "Przeszkoda.hh"
+#include "lacze_do_gnuplota.hh"
+
 
 /*!
  * \file Scena.hh
@@ -21,101 +28,91 @@ class Scena {
  * Klasa modeluje pojęcie sceny z robotem oraz jego ścieżką
  * Jej atrybuty to Robot oraz ścieżka.
  */
+  std::list<shared_ptr<ObiektGraficzny>> LOb;
+  std::list<shared_ptr<Robot>> LR;
+  std::list<shared_ptr<Przeszkoda>> LP;
 
-  Robot R;
-  Sciezka S;
+  PzG::LaczeDoGNUPlota  Lacze;
+ 
   
 public:
   /*!
    * /brief Konstruktory oraz destruktor sceny
    */
   
-  Scena(){}
-
-  Scena (Wektor2D WekInit) : R(WekInit) {};
+  Scena(){
+    Lacze.ZmienTrybRys(PzG::TR_2D);
+  };
 
   ~Scena(){}
+
+  void TworzListy();
+
+  bool ZapiszDoPliku ();
+
+  void ObrocPrzeszkode();
+  void PrzesunPrzeszkode();
+  void ZmienRozmiarPrzeszkody();
+  void DodajPrzeszkode();
+  void UsunPrzeszkode();
   
-  /*!
-   * \brief Metoda pozwalajaca na dostep do robota
-   */
+  
 
-  Robot WezR () const {
-    return R;
-  }
 
-  /*!
-   * \brief Metoda pozwalajaca na dostep do sciezki
-   */
+  // /*!
+  //  * \brief Metoda pozwalajaca na dostep do polozenia robota
+  //  */
 
-  Sciezka WezS () const {
-    return S;
-  }
+  // Wektor2D PokazPolozenie () const {
+  //   return R.ZwrocPolozenie();
+  // }
 
-  /*!
-   * \brief Metoda pozwalajaca na dostep do polozenia robota
-   */
+  // /*!
+  //  * \brief Metoda zapisujaca obecne polozenie robota do sciezki
+  //  */
 
-  Wektor2D PokazPolozenie () const {
-    return R.ZwrocPolozenie();
-  }
+  // void ZapiszSciezke () {
+  //   Wektor2D Tmp = PokazPolozenie();
+  //   S.Dodaj(Tmp);
+  // }
 
-  /*!
-   * \brief Metoda zapisujaca obecne polozenie robota do sciezki
-   */
+  // /*!
+  //  * \brief Metoda pozwalająca przesunąć całą scenę o zadany wektor
+  //  * \param[in] W - wektor o który ma zostać przesunięta scena. 
+  //  */
 
-  void ZapiszSciezke () {
-    Wektor2D Tmp = PokazPolozenie();
-    S.Dodaj(Tmp);
-  }
+  // void Przesun (const Wektor2D& W)
+  // {
+  //   R.Przesun(W);
+  //   S.Przesun(W);
+  // }
 
-  /*!
-   * \brief Metoda pozwalająca przesunąć całą scenę o zadany wektor
-   * \param[in] W - wektor o który ma zostać przesunięta scena. 
-   */
+  // /*!
+  //  * \brief Metoda animujaca jazde robota
+  //  */
 
-  void Przesun (const Wektor2D& W)
-  {
-    R.Przesun(W);
-    S.Przesun(W);
-  }
+  // void JazdaAnimuj (double Dlugosc)
+  // {
+  //   R.Jedz(Dlugosc);
+  // }
 
-  /*!
-   * \brief Metoda animujaca jazde robota
-   */
+  // /*!
+  //  * \brief Metoda animujaca obrot robota
+  //  */
 
-  void JazdaAnimuj (double Dlugosc)
-  {
-    R.Jedz(Dlugosc);
-  }
+  // void ObrotAnimuj (int Kat) {
+  //     R.Obroc(Kat);
+  // }
 
-  /*!
-   * \brief Metoda animujaca obrot robota
-   */
+  // void ZmienPredkosc (double Szybkosc) {
+  //   R.ZmienSzybkosc(Szybkosc);
+  // }
 
-  void ObrotAnimuj (int Kat) {
-      R.Obroc(Kat);
-  }
+  // void SkalujRobota (double Scale) {
+  //   R.ZmienRozmiarRobota(Scale);
+  // }
 
-  void ZmienPredkosc (double Szybkosc) {
-    R.ZmienSzybkosc(Szybkosc);
-  }
-
-  void SkalujRobota (double Scale) {
-    R.ZmienRozmiarRobota(Scale);
-  }
-
-  /*!
-   * \brief Metody zapisujaca robota do pliku
-   */
-
-  bool RZapiszDoPliku (const char  *sNazwaPliku);
-
-  /*!
-   * \brief Metoda zapisujaca sciezke do pliku
-   */
-
-  bool SZapiszDoPliku (const char  *sNazwaPliku);
+  
   
 };
 

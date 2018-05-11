@@ -27,6 +27,7 @@ class ObiektGraficzny {
 protected:
 
   Zbior_Wierzcholkow ZW;
+  Wektor2D Polozenie;
   
 public:
 
@@ -38,10 +39,17 @@ public:
   {
     Trans = Wektor2D(0.0,0.0);
   }
+
+  ObiektGraficzny(const ObiektGraficzny &Ob) {
+    (*this) = Ob;
+  }
   
   virtual ~ObiektGraficzny()
   {
   }
+
+  virtual const char* NazwaTypu() const {return "ObiektGraficzny";}
+  virtual Wektor2D ZwrocPolozenie() const {return Polozenie;}
   
   /*!
    * /brief Metoda pozwalajaca przesunac Obiekt Graficzny o zadany wektor
@@ -59,7 +67,7 @@ public:
    * /brief Metoda zapisac Obiekt Graficzny do strumienia
    */
 
-  bool Zapisz(std::ostream &S);
+  virtual bool Zapisz(std::ostream &S);
 };
 
 #endif

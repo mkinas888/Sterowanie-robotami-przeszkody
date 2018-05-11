@@ -26,7 +26,6 @@ class Robot : public ObiektGraficzny {
  */
   
   Zbior_Wierzcholkow ZW_lok;
-  Wektor2D           Polozenie;
   double             Szybkosc;
   int                Kat;
   int                Rozmiar;
@@ -48,6 +47,8 @@ public:
   ~Robot()
   {
   }
+
+  virtual const char* NazwaTypu() const {return "Robot";}
 
   /*!
    * \brief Metoda pozwalająca zmieniać szybkość robota

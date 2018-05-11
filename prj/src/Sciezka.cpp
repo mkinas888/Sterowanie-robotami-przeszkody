@@ -15,6 +15,7 @@
 
 void Sciezka::Dodaj (Wektor2D& W)
 {
+  Polozenie = W;
   ZW.Dodaj(W);
 }
 
@@ -24,6 +25,7 @@ void Sciezka::Dodaj (Wektor2D& W)
  */
 
 void Sciezka::Przesun (const Wektor2D& W) {
+  Polozenie = W;
   for(int i=0;i<ZW.RozmiarZbioru();++i) {
     ZW[i] = ZW[i] + W;
   }
