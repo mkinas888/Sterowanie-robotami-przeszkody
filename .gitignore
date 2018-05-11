@@ -1,8 +1,12 @@
 #Ignore all .o files
 **/obj
 /prj/robot_scena
+
 #Ignore dox directory
 **/dox
+
 #Ignore figury directory
 **/figury
+
+#Ignore vscode settings
 *.json

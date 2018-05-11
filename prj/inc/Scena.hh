@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <unistd.h>
 #include <list>
 #include <string>
 #include "Robot.hh"
@@ -32,6 +33,9 @@ class Scena {
   std::list<shared_ptr<Robot>> LR;
   std::list<shared_ptr<Przeszkoda>> LP;
 
+  shared_ptr<Robot> WR;
+  shared_ptr<Sciezka> WS;
+
   PzG::LaczeDoGNUPlota  Lacze;
  
   
@@ -49,6 +53,7 @@ public:
   void TworzListy();
 
   bool ZapiszDoPliku ();
+  bool ZapiszRoboty ();
 
   void ObrocPrzeszkode();
   void PrzesunPrzeszkode();
@@ -56,7 +61,30 @@ public:
   void DodajPrzeszkode();
   void UsunPrzeszkode();
   
-  
+  void SelekcjaRobota();
+
+  void ZmienPredkosc (double Szybkosc) {
+    WR->ZmienSzybkosc(Szybkosc);
+  }
+
+  void SkalujRobota (double Scale) {
+    WR->ZmienRozmiarRobota(Scale);
+    ZapiszDoPliku();
+  }
+
+  void AnimujObrot (int Obr) {
+    for(int i = 0; i < Obr; i++) {
+      WR->Obroc(1);
+      ZapiszRoboty();
+    }
+    ZapiszDoPliku();
+  }
+
+  void AnimujJazde (double Droga);
+  void Przesun (Wektor2D &W);
+  Wektor2D PokazPolozenieRobota () {
+    return WR->ZwrocPolozenie();
+  }
 
 
   // /*!

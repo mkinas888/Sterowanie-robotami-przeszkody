@@ -14,6 +14,9 @@ void Scena::TworzListy() {
   shared_ptr<Przeszkoda> P3(new Przeszkoda(-250.0, 270.0, 50.0, 20.0));
   shared_ptr<Przeszkoda> P4(new Przeszkoda(-280.0, -280.0, 150.0, 10.0));
 
+  WR = R1;
+  WS = S1;
+
   LOb.push_back(R1);
   LOb.push_back(R2);
   LOb.push_back(R3);
@@ -39,6 +42,31 @@ void Scena::TworzListy() {
  * \param[in] *sNazwaPliku - nazwa pliku do ktorego zapisane beda wspolrzedne robota
  * \param[out] false/true - w zaleznosci od sukcesu lub jego braku
  */
+
+bool Scena::ZapiszRoboty () {
+  bool wasSuccessful = true;
+  int R = 0;
+  if (wasSuccessful) {
+     for(const shared_ptr<Robot>  &wR : LR) {
+        ++R;
+        std::string NazwaPliku;
+        NazwaPliku = std::string("figury/Robot") + std::string(std::to_string(R)) + std::string(".dat");
+        std::ofstream StrmPlikowy;
+        
+        StrmPlikowy.open(NazwaPliku);  
+        if (!StrmPlikowy.is_open())  {
+          cerr << ":(  Operacja otwarcia do zapisu \"" << NazwaPliku << "\"" << endl
+        << ":(  nie powiodla sie." << endl;
+          wasSuccessful = false;
+        }
+        wR->Zapisz(StrmPlikowy);
+        StrmPlikowy.close();
+        wasSuccessful = !StrmPlikowy.fail();
+      }
+    }
+  Lacze.Rysuj();
+  return wasSuccessful;
+}
 
 bool Scena::ZapiszDoPliku ()
 {
@@ -179,6 +207,60 @@ void Scena::UsunPrzeszkode() {
         }
       }
   }
+  Lacze.UsunWszystkieNazwyPlikow();
   ZapiszDoPliku();
 }
 
+void Scena::SelekcjaRobota() {
+  Wektor2D Wek, Tmp;
+  cout << "Dostepne roboty to:" << endl;
+  for(const shared_ptr<Robot>  &wR : LR) {
+    cout << wR->ZwrocPolozenie() << endl << endl; 
+  }
+  cout << "Wprowadz wspolrzedne robota ktorym chcesz sterowac" << endl;
+  cin >> Wek;
+  for(const shared_ptr<Robot>  &wR : LR) {
+    Tmp = wR->ZwrocPolozenie();
+    if(Wek == Tmp) {
+      WR = wR;
+      break;
+    } 
+  }
+  for(const shared_ptr<ObiektGraficzny> &wOb : LOb) {
+    std::string Typ = wOb->NazwaTypu();
+      if(Typ == "Sciezka") {
+        if(Wek == Tmp) {
+          WS = static_pointer_cast<Sciezka>(wOb);
+          break;
+        }
+      }
+  }
+}
+
+void Scena::AnimujJazde (double Dlugosc) {
+  unsigned int microsec = 1000;
+  double krok, predkosc;
+  Wektor2D Polozenie;
+  predkosc = WR->ZwrocSzybkosc();
+  krok = Dlugosc/predkosc;
+  if(predkosc < Dlugosc) {
+    for(int i=0;i<krok;i++) {
+    usleep(microsec);
+    WR->Jedz(predkosc);
+    ZapiszRoboty();
+    }
+  } else {
+    WR->Jedz(Dlugosc);
+    ZapiszRoboty();
+  }
+  Polozenie = WR->ZwrocPolozenie();
+  WS->Dodaj(Polozenie);
+  ZapiszDoPliku();
+}
+
+void Scena::Przesun(Wektor2D &W) {
+  for(const shared_ptr<ObiektGraficzny> &wOb : LOb) {
+    wOb->Przesun(W);
+  }
+}
+ 
