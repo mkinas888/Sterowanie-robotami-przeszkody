@@ -183,7 +183,7 @@ void Scena::DodajPrzeszkode() {
 }
 
 void Scena::UsunPrzeszkode() {
-  Wektor2D W,Wek;
+  Wektor2D W;
   cout << "Dostepne przeszkody to:" << endl;
   for(const shared_ptr<Przeszkoda>  &wP : LP) {
     cout << wP->ZwrocPolozenie() << endl << endl; 
@@ -192,7 +192,7 @@ void Scena::UsunPrzeszkode() {
   cin >> W;
   for(const shared_ptr<Przeszkoda>  &wP : LP) {
     Wektor2D Tmp(wP->ZwrocPolozenie());
-    if(Wek == Tmp) {
+    if(W == Tmp) {
       LP.remove(wP);
       break;
     }
@@ -201,7 +201,7 @@ void Scena::UsunPrzeszkode() {
     std::string Typ = wOb->NazwaTypu();
       if(Typ == "Przeszkoda") {
         Wektor2D Tmp(wOb->ZwrocPolozenie());
-        if(Wek == Tmp) {
+        if(W == Tmp) {
           LOb.remove(wOb);
           break;
         }
@@ -305,8 +305,20 @@ bool Scena::SprawdzCzyKolizjaZPrzeszkoda()
       ZW_tmp = wOb->ZwrocZbior();
       for(int x = 0; x < 4; x++) {
         TMP = ZW_tmp[x];
-        Tabx[x] = TMP[0] + rozmiar +1;
-        Taby[x] = TMP[1] + rozmiar +1;
+        if(x == 0) {
+          Tabx[x] = TMP[0] - rozmiar -1;
+          Taby[x] = TMP[1] - rozmiar -1;
+        }
+        else if(x == 1) {
+          Tabx[x] = TMP[0] + rozmiar +1;
+          Taby[x] = TMP[1] - rozmiar -1;
+        } else if(x == 2) {
+          Tabx[x] = TMP[0] + rozmiar +1;
+          Taby[x] = TMP[1] + rozmiar +1;
+        } else {
+          Tabx[x] = TMP[0] - rozmiar -1;
+          Taby[x] = TMP[1] + rozmiar +1;
+        }
       }
       for(int i = 0; i < 4; i++){
         j++;
