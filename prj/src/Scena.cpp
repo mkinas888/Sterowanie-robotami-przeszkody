@@ -230,7 +230,7 @@ void Scena::SelekcjaRobota() {
     std::string Typ = wOb->NazwaTypu();
       if(Typ == "Sciezka") {
         if(Wek == Tmp) {
-          WS = static_pointer_cast<Sciezka>(wOb);
+          WS = dynamic_pointer_cast<Sciezka>(wOb);
           break;
         }
       }
@@ -247,6 +247,10 @@ void Scena::AnimujJazde (double Dlugosc) {
     for(int i=0;i<krok;i++) {
     usleep(microsec);
     WR->Jedz(predkosc);
+    if(CzyKolizjaZRobotem() || SprawdzCzyKolizjaZPrzeszkoda()){
+      ZapiszRoboty();
+      break;
+    }
     ZapiszRoboty();
     }
   } else {
@@ -262,5 +266,63 @@ void Scena::Przesun(Wektor2D &W) {
   for(const shared_ptr<ObiektGraficzny> &wOb : LOb) {
     wOb->Przesun(W);
   }
+  ZapiszDoPliku();
+}
+
+bool Scena::CzyKolizjaZRobotem () {
+  double d, r1, r2;
+  Wektor2D P1, P2;
+  for(const shared_ptr<Robot>  &wR : LR) {
+    if(wR != WR) {
+      d = 0;
+      P1 = WR->ZwrocPolozenie();
+      P2 = wR->ZwrocPolozenie();
+      r1 = WR->ZwrocRozmiar();
+      r2 = wR->ZwrocRozmiar();
+      d = sqrt(pow((P2[0] - P1[0]),2) + pow((P2[1] - P1[1]),2));
+      if(d < r1+r2) {
+        return true;
+        break;
+      } 
+    }
+  }
+  return false;
+}
+
+
+bool Scena::SprawdzCzyKolizjaZPrzeszkoda()
+{
+  Zbior_Wierzcholkow ZW_tmp;
+  Wektor2D PR, TMP;
+  int i, j = 0;
+  double Tabx[3], Taby[3], rozmiar;
+  bool CzyKolizja = false;
+  PR = WR->ZwrocPolozenie();
+  rozmiar = WR->ZwrocRozmiar();
+  for(const shared_ptr<ObiektGraficzny>  &wOb : LOb) {
+    std::string Typ = wOb->NazwaTypu();
+    if(Typ == "Przeszkoda") {
+      ZW_tmp = wOb->ZwrocZbior();
+      for(int x = 0; x < 4; x++) {
+        TMP = ZW_tmp[x];
+        Tabx[x] = TMP[0] + rozmiar +1;
+        Taby[x] = TMP[1] + rozmiar +1;
+      }
+      for(int i = 0; i < 4; i++){
+        j++;
+        if (j == 4)
+          j = 0;
+        if (Taby[i] < PR[1] && Taby[j] >= PR[1] || Taby[j] < PR[1] && Taby[i] >= PR[1])
+        {
+          if (Tabx[i] + (PR[1] - Taby[i]) / (Taby[j] - Taby[i]) *
+            (Tabx[j] - Tabx[i]) < PR[0])
+          {
+            CzyKolizja = !CzyKolizja;
+          }
+        }
+      }
+    }
+  }
+  return CzyKolizja;
 }
  

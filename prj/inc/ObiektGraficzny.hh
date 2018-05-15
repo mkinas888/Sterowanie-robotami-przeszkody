@@ -50,6 +50,7 @@ public:
 
   virtual const char* NazwaTypu() const {return "ObiektGraficzny";}
   virtual Wektor2D ZwrocPolozenie() const {return Polozenie;}
+  Zbior_Wierzcholkow ZwrocZbior () const {return ZW;}
   
   /*!
    * /brief Metoda pozwalajaca przesunac Obiekt Graficzny o zadany wektor

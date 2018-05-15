@@ -45,6 +45,5 @@ bool ObiektGraficzny::Zapisz(std::ostream& s)
     ZW_trans.Dodaj(ZW[i] + Trans);
   }
   s << ZW_trans;
-  std::flush(s);
   return true;
 }

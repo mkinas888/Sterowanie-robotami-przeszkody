@@ -50,6 +50,8 @@ public:
 
   virtual const char* NazwaTypu() const {return "Robot";}
 
+  int ZwrocRozmiar () {int i = Rozmiar; return i;}
+
   /*!
    * \brief Metoda pozwalająca zmieniać szybkość robota
    * \param[in] NowaSzybkość - podana nowa szybkość

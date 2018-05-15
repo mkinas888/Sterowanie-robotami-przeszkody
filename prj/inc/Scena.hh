@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <cmath>
 #include <unistd.h>
 #include <list>
 #include <string>
@@ -33,7 +34,7 @@ class Scena {
   std::list<shared_ptr<Robot>> LR;
   std::list<shared_ptr<Przeszkoda>> LP;
 
-  shared_ptr<Robot> WR;
+  shared_ptr<Robot> WR, WRTmp;
   shared_ptr<Sciezka> WS;
 
   PzG::LaczeDoGNUPlota  Lacze;
@@ -86,62 +87,9 @@ public:
     return WR->ZwrocPolozenie();
   }
 
+  bool SprawdzCzyKolizjaZPrzeszkoda ();
+  bool CzyKolizjaZRobotem ();
 
-  // /*!
-  //  * \brief Metoda pozwalajaca na dostep do polozenia robota
-  //  */
-
-  // Wektor2D PokazPolozenie () const {
-  //   return R.ZwrocPolozenie();
-  // }
-
-  // /*!
-  //  * \brief Metoda zapisujaca obecne polozenie robota do sciezki
-  //  */
-
-  // void ZapiszSciezke () {
-  //   Wektor2D Tmp = PokazPolozenie();
-  //   S.Dodaj(Tmp);
-  // }
-
-  // /*!
-  //  * \brief Metoda pozwalająca przesunąć całą scenę o zadany wektor
-  //  * \param[in] W - wektor o który ma zostać przesunięta scena. 
-  //  */
-
-  // void Przesun (const Wektor2D& W)
-  // {
-  //   R.Przesun(W);
-  //   S.Przesun(W);
-  // }
-
-  // /*!
-  //  * \brief Metoda animujaca jazde robota
-  //  */
-
-  // void JazdaAnimuj (double Dlugosc)
-  // {
-  //   R.Jedz(Dlugosc);
-  // }
-
-  // /*!
-  //  * \brief Metoda animujaca obrot robota
-  //  */
-
-  // void ObrotAnimuj (int Kat) {
-  //     R.Obroc(Kat);
-  // }
-
-  // void ZmienPredkosc (double Szybkosc) {
-  //   R.ZmienSzybkosc(Szybkosc);
-  // }
-
-  // void SkalujRobota (double Scale) {
-  //   R.ZmienRozmiarRobota(Scale);
-  // }
-
-  
-  
 };
 
 #endif

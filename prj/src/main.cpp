@@ -20,7 +20,7 @@ int main()
 {
 	Scena S;
 	char Znak;
-  Wektor2D W, Tmp(0.0,0.0);
+  	Wektor2D W(0.0,0.0), Tmp(0.0,0.0);
 	int Kat;
 	double NowaSzybkosc, Skala, Dlugosc;
   
@@ -29,25 +29,25 @@ int main()
 
   do
     {
-			cout << "Aktualnie wybrany robot ma wspolrzedne:" << S.PokazPolozenieRobota() << endl << endl;
-			cout << "s - selekcja robota" << endl;
-      cout << "z - zmiana szybkosci ruchu robota" << endl;
-			cout << "c - zmien rozmiar robota" << endl;
-      cout << "o - obrot robota" << endl;
-      cout << "j - jazda na wprost" << endl << endl;
-			cout << "b - obroc wybrana preszkode" << endl;
-			cout << "d - przesun wybrana przeszkode"<< endl;
-			cout << "a - dodaj nowa przeszkode" << endl;
-			cout << "u - usun wybrana przeszkode" << endl << endl;
-      cout << "t - zadaj translacje rysunku" << endl;
-      cout << "p - powrot do pierwotnego ustawienia" << endl << endl;
-      cout << "w - wyswietl ponownie menu" << endl << endl;
-      cout << "k - zakoncz dzialanie programu" << endl << endl;
-      cout << "Twoj wybor (w - wyswietl menu) >";
-      cin >> Znak;
-      cout << endl;
+	cout << "Aktualnie wybrany robot ma wspolrzedne:" << S.PokazPolozenieRobota() << endl << endl;
+	cout << "s - selekcja robota" << endl;
+	cout << "z - zmiana szybkosci ruchu robota" << endl;
+	cout << "c - zmien rozmiar robota" << endl;
+	cout << "o - obrot robota" << endl;
+	cout << "j - jazda na wprost" << endl << endl;
+	cout << "b - obroc wybrana preszkode" << endl;
+	cout << "d - przesun wybrana przeszkode"<< endl;
+	cout << "a - dodaj nowa przeszkode" << endl;
+	cout << "u - usun wybrana przeszkode" << endl << endl;
+	cout << "t - zadaj translacje rysunku" << endl;
+	cout << "p - powrot do pierwotnego ustawienia" << endl << endl;
+	cout << "w - wyswietl ponownie menu" << endl << endl;
+	cout << "k - zakoncz dzialanie programu" << endl << endl;
+	cout << "Twoj wybor (w - wyswietl menu) >";
+	cin >> Znak;
+	cout << endl;
       
-      switch(Znak)
+	switch(Znak)
 	{
 		case 's':
 			S.SelekcjaRobota();
@@ -96,6 +96,7 @@ int main()
 			break;
 		case 'p':
 			S.Przesun(Tmp);
+			Tmp = Wektor2D(0.0,0.0);
 			break;
 		case 'w':
 			break;
