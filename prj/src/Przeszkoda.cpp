@@ -22,7 +22,7 @@ Przeszkoda::Przeszkoda(double x, double y, double Wysokosc, double Szerokosc) {
 
 Przeszkoda::Przeszkoda(double x, double y, double Wysokosc, double Szerokosc, int Obr) {
     Kat = Obr;
-    Polozenie = Wektor2D(x*(3/2),y/2);
+    Polozenie = Wektor2D(x*(3/2),y);
     ZW_lok.Dodaj(Wektor2D(-(0.5*Szerokosc),-(0.5*Wysokosc)));
     ZW_lok.Dodaj(Wektor2D(0.5*Szerokosc, -(0.5*Wysokosc)));
     ZW_lok.Dodaj(Wektor2D(0.5*Szerokosc, 0.5*Wysokosc));
