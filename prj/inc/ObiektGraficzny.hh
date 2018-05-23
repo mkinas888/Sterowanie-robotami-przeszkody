@@ -48,8 +48,19 @@ public:
   {
   }
 
+  /*!
+   * /brief Metoda wirtualna zwracajaca typ danego obiektu
+   */
   virtual const char* NazwaTypu() const {return "ObiektGraficzny";}
+
+  /*!
+   * /brief Metoda wirtualna zwracajaca polozenie danego obiektu
+   */
   virtual Wektor2D ZwrocPolozenie() const {return Polozenie;}
+
+  /*!
+   * /brief Metoda zwracajaca Zbior Wierzcholkow danego obiektu
+   */
   Zbior_Wierzcholkow ZwrocZbior () const {return ZW;}
   
   /*!

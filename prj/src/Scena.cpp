@@ -1,5 +1,9 @@
 #include "Scena.hh"
 
+/*!
+ * \brief Metoda tworzaca wszystkie listy obiektow uzywanych w tym programie
+ */
+
 void Scena::TworzListy() {
   shared_ptr<Robot>  R1(new Robot(Wektor2D(100.0, -150.0)));
   shared_ptr<Robot>  R2(new Robot(Wektor2D(-100.0, -50.0)));
@@ -41,8 +45,7 @@ void Scena::TworzListy() {
 
 
 /*!
- * \brief Metoda zapisujaca wspolrzedne robota do pliku
- * \param[in] *sNazwaPliku - nazwa pliku do ktorego zapisane beda wspolrzedne robota
+ * \brief Metoda zapisujaca wszystkie roboty do pliku
  * \param[out] false/true - w zaleznosci od sukcesu lub jego braku
  */
 
@@ -70,6 +73,11 @@ bool Scena::ZapiszRoboty () {
   Lacze.Rysuj();
   return wasSuccessful;
 }
+
+/*!
+ * \brief Metoda zapisujaca wszystkie obiekty graficzne do pliku
+ * \param[out] false/true - w zaleznosci od sukcesu lub jego braku
+ */
 
 bool Scena::ZapiszDoPliku ()
 {
@@ -108,6 +116,11 @@ bool Scena::ZapiszDoPliku ()
   return wasSuccessful;
 }
 
+/*!
+ * \brief Metoda obracajaca przeszkode ktora uzytkownik wybiera na podstawie polozenia
+ * kazdej z przeszkow i wprowadzeniu odpowiedniego kata obrotu
+ */
+
 void Scena::ObrocPrzeszkode() {
   Wektor2D W;
   int Obr;
@@ -128,6 +141,10 @@ void Scena::ObrocPrzeszkode() {
   }
 }
 
+/*!
+ * \brief Metoda przesuwajaca wybrana przez uzytkownika przeszkode o zadany wektor
+ */
+
 void Scena::PrzesunPrzeszkode() {
   Wektor2D Wek, P;
   cout << "Dostepne przeszkody to:" << endl;
@@ -146,6 +163,11 @@ void Scena::PrzesunPrzeszkode() {
     } 
   }
 }
+
+/*!
+ * \brief Metoda zmieniajaca rozmiar wybranej przez uzytkownika przeszkody poprzesz podanie
+ * nowej dlugosci i szerokoscie przeszkody
+ */
 
 void Scena::ZmienRozmiarPrzeszkody() {
   Wektor2D W;
@@ -169,6 +191,11 @@ void Scena::ZmienRozmiarPrzeszkody() {
   }
 }
 
+/*!
+ * \brief Metoda tworzy przeszkode z podanymi przez uzytkownika parametrami oraz
+ * dodaje ja do listy obiektow oraz listy przeszkod
+ */
+
 void Scena::DodajPrzeszkode() {
   double x,y,Szer,Wys;
   int Obr;
@@ -184,6 +211,11 @@ void Scena::DodajPrzeszkode() {
   LOb.push_back(P);
   ZapiszDoPliku();
 }
+
+/*!
+ * \brief Metoda usuwa przeszkode wybrana na podstawie polozenia oraz usuwa wybrany obiekt z 
+ * listy obiektow graficznych oraz listy przeszkod
+ */
 
 void Scena::UsunPrzeszkode() {
   Wektor2D W;
@@ -213,6 +245,11 @@ void Scena::UsunPrzeszkode() {
   Lacze.UsunWszystkieNazwyPlikow();
   ZapiszDoPliku();
 }
+
+/*!
+ * \brief Metoda selekcjonujaca robota na podstawie jego polozenia. Zmienia rowniez obecna
+ * sciezke na sciezke przypisana do tego robota
+ */
 
 void Scena::SelekcjaRobota() {
   Wektor2D Wek, Tmp;
@@ -245,6 +282,12 @@ void Scena::SelekcjaRobota() {
   }
 }
 
+/*!
+ * \brief Metoda animujaca jazde robota. Nastepuje sprawdzenie wystapienia kolizji
+ * z innymi robotami oraz przeszkodami, a takze zapis robota i sciezki do pliku
+ * \param[in] Dlugosc - odcinek drogi ktory ma przejechac robot
+ */
+
 void Scena::AnimujJazde (double Dlugosc) {
   unsigned int microsec = 1000;
   double krok, predkosc;
@@ -270,12 +313,23 @@ void Scena::AnimujJazde (double Dlugosc) {
   ZapiszDoPliku();
 }
 
+/*!
+ * \brief Metoda przesuwajaca wszystkie obiekty na scenie o zadany wektor
+ * \param[in] W - wektor przesuniecia
+ */
+
 void Scena::Przesun(Wektor2D &W) {
   for(const shared_ptr<ObiektGraficzny> &wOb : LOb) {
     wOb->Przesun(W);
   }
   ZapiszDoPliku();
 }
+
+/*!
+ * \brief Metoda sprawdzajaca czy wystepuje kolizja z innymi robotem. Aproksymacja robota 
+ * nastepuje przez okrag. Porownywane sa polozenia srodka kazdego robota
+ * param[out] false/true - w zaleznosci od wystapienia kolizji
+ */
 
 bool Scena::CzyKolizjaZRobotem () {
   double d, r1, r2;
@@ -296,6 +350,14 @@ bool Scena::CzyKolizjaZRobotem () {
   }
   return false;
 }
+
+/*!
+ * \brief Metoda sprawdzajaca czy wystepuje kolizja ze wszystkimi przeszkodami.
+ * Meroda powieksza rozmiar sprawdzanej obecnie przeszkody o promien robota.
+ * Kolizja lub jej brak okreslana jest na podstawie przeciec sprawdzanego punktu z 
+ * bokami sprawdzanej przeszkody.
+ * param[out] false/true - w zaleznosci od wystapienia kolizji
+ */
 
 
 bool Scena::SprawdzCzyKolizjaZPrzeszkoda()

@@ -27,8 +27,9 @@ class Scena {
 /*!
  * \brief Modeluje pojęcie sceny
  *
- * Klasa modeluje pojęcie sceny z robotem oraz jego ścieżką
- * Jej atrybuty to Robot oraz ścieżka.
+ * Klasa modeluje pojęcie sceny z na ktorej znajduja sie wszystkie obiekty
+ * Jej atrybuty to listy: obiektow, robotow, przeszkod, i sciezek,
+ * oraz wskazniki na aktualnego robota i sciezke a takze lacze do gnuplota
  */
   std::list<shared_ptr<ObiektGraficzny>> LOb;
   std::list<shared_ptr<Robot>> LR;
@@ -43,7 +44,7 @@ class Scena {
   
 public:
   /*!
-   * /brief Konstruktory oraz destruktor sceny
+   * /brief Konstruktor oraz destruktor sceny
    */
   
   Scena(){
@@ -52,27 +53,83 @@ public:
 
   ~Scena(){}
 
+   /*! 
+   * Metoda tworzaca listy wszystkich obiektow dostepnych w programie
+   */
+
   void TworzListy();
 
+  /*! 
+   * Metoda zapisujaca wszystkie roboty do pliku
+   */
+
   bool ZapiszDoPliku ();
+
+  /*! 
+   * Metoda zapisujaca wszystkie obiekty graficzne do pliku
+   */
+
   bool ZapiszRoboty ();
 
+  /*! 
+   * Metoda obracajaca wybrana przeszkode
+   */
+
   void ObrocPrzeszkode();
+
+  /*! 
+   * Metoda przesuwajaca wybrana przeszkode
+   */
+
   void PrzesunPrzeszkode();
+
+  /*! 
+   * Metoda zmieniejaca rozmiar wybranej przeszkody
+   */
+
   void ZmienRozmiarPrzeszkody();
+
+  /*! 
+   * Metoda dodajaca nowa przeszkode
+   */
+
   void DodajPrzeszkode();
+
+  /*! 
+   * Metoda usuwajaca wybrana przeszkode
+   */
+
   void UsunPrzeszkode();
+
+  /*! 
+   * Metoda pozwalajaca na selekcje robota i jego sciezki
+   */
   
   void SelekcjaRobota();
+
+  /*! 
+   * Metoda zmieniajaca predkosc robota
+   * param[in] Szybkosc - nowa predkosc robota
+   */
 
   void ZmienPredkosc (double Szybkosc) {
     WR->ZmienSzybkosc(Szybkosc);
   }
 
+  /*! 
+   * Metoda skalujaca robota
+   * param[in] Scale - wartosc wspolczynnika skali robota
+   */
+
   void SkalujRobota (double Scale) {
     WR->ZmienRozmiarRobota(Scale);
     ZapiszDoPliku();
   }
+
+  /*! 
+   * Metoda animujaca obrot robota o zadany kat
+   * param[in] Obr - kat obrotu robota
+   */
 
   void AnimujObrot (int Obr) {
     for(int i = 0; i < Obr; i++) {
@@ -82,13 +139,35 @@ public:
     ZapiszDoPliku();
   }
 
+  /*! 
+   * Metoda animujaca jazde robota
+   */
+
   void AnimujJazde (double Droga);
+
+
+  /*! 
+   * Metoda przesuwajaca robota o zadany wektor
+   * param[in] W - wektor przesuniecia
+   */
+
   void Przesun (Wektor2D &W);
   Wektor2D PokazPolozenieRobota () {
     return WR->ZwrocPolozenie();
   }
 
+
+  /*! 
+   * Metoda sprawdzajaca kolizje robota z przeszkodami
+   */
+
   bool SprawdzCzyKolizjaZPrzeszkoda ();
+
+
+  /*! 
+   * Metoda sprawdzajaca kolizje robota z innym robotem
+   */
+
   bool CzyKolizjaZRobotem ();
 
 };

@@ -60,11 +60,23 @@ public:
   void Dodaj (Wektor2D& W);
 
   /*! 
-   * Metoda pozwalająca na przesuniecie sciezki o zadany wektor
+   * Metoda pozwalająca na przesuniecie przeszkody o zadany wektor
    */
 
   void Przesun (const Wektor2D& W);
+
+
+  /*! 
+   * Metoda pozwalająca na obrocenie przeszkody
+   */
+
   void Obroc (int Obr);
+
+
+  /*! 
+   * Metoda pozwalająca na zmiane rozmiaru wybranej przeszkody
+   */
+
   void ZmienRozmiar (double Szer, double Wys);
 
 };
