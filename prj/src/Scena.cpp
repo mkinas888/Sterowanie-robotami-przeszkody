@@ -34,6 +34,9 @@ void Scena::TworzListy() {
   LP.push_back(P2);
   LP.push_back(P3);
   LP.push_back(P4);
+  LS.push_back(S1);
+  LS.push_back(S2);
+  LS.push_back(S3);
 }
 
 
@@ -213,27 +216,32 @@ void Scena::UsunPrzeszkode() {
 
 void Scena::SelekcjaRobota() {
   Wektor2D Wek, Tmp;
+  unsigned int Num = 0, rob;
+  auto iterR = LR.begin();
+  auto iterS = LS.begin();
   cout << "Dostepne roboty to:" << endl;
   for(const shared_ptr<Robot>  &wR : LR) {
-    cout << wR->ZwrocPolozenie() << endl << endl; 
+    ++Num;
+    cout << Num << ".  " << wR->ZwrocPolozenie() << endl << endl; 
   }
-  cout << "Wprowadz wspolrzedne robota ktorym chcesz sterowac" << endl;
-  cin >> Wek;
-  for(const shared_ptr<Robot>  &wR : LR) {
-    Tmp = wR->ZwrocPolozenie();
-    if(Wek == Tmp) {
-      WR = wR;
+  cout << "Wprowadz numer robota ktorym chcesz sterowac" << endl;
+  cin >> rob;
+  switch(rob){
+    case 1:
+      WR = LR.front();
+      WS = LS.front();
       break;
-    } 
-  }
-  for(const shared_ptr<ObiektGraficzny> &wOb : LOb) {
-    std::string Typ = wOb->NazwaTypu();
-      if(Typ == "Sciezka") {
-        if(Wek == Tmp) {
-          WS = dynamic_pointer_cast<Sciezka>(wOb);
-          break;
-        }
-      }
+    case 2:
+      WR = *(++iterR);
+      WS = *(++iterS);
+      break;
+    case 3:
+      WR = LR.back();
+      WS = LS.back();
+      break;
+    default:
+      std::cerr << "Nie istnieje robot o podanym numerze";
+      break;
   }
 }
 

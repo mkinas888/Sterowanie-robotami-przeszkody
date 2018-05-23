@@ -33,6 +33,7 @@ class Scena {
   std::list<shared_ptr<ObiektGraficzny>> LOb;
   std::list<shared_ptr<Robot>> LR;
   std::list<shared_ptr<Przeszkoda>> LP;
+  std::list<shared_ptr<Sciezka>> LS;
 
   shared_ptr<Robot> WR, WRTmp;
   shared_ptr<Sciezka> WS;
