@@ -17,7 +17,7 @@
 
 Przeszkoda::Przeszkoda(double x, double y, double Wysokosc, double Szerokosc) {
     Kat = 0;
-    Polozenie = Wektor2D(x*(3/2),y/2);
+    Polozenie = Wektor2D(x*(3/2),y);
     ZW_lok.Dodaj(Wektor2D(-(0.5*Szerokosc),-(0.5*Wysokosc)));
     ZW_lok.Dodaj(Wektor2D(0.5*Szerokosc, -(0.5*Wysokosc)));
     ZW_lok.Dodaj(Wektor2D(0.5*Szerokosc, 0.5*Wysokosc));

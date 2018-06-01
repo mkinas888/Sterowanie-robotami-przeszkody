@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <list>
 #include <string>
+#include "Fabryka.hh"
 #include "Robot.hh"
 #include "Sciezka.hh"
 #include "ObiektGraficzny.hh"
@@ -100,6 +101,18 @@ public:
    */
 
   void UsunPrzeszkode();
+
+  /*! 
+   * Metoda dodajaca nowego robota
+   */
+
+  void DodajRobota();
+
+  /*! 
+   * Metoda usuwajaca wybranego robota
+   */
+
+  void UsunRobota();
 
   /*! 
    * Metoda pozwalajaca na selekcje robota i jego sciezki

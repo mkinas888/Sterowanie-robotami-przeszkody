@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <fstream>
 #include <unistd.h>
+#include "Fabryka.hh"
 #include "Wektor2D.hh"
 #include "Macierz2x2.hh"
 #include "Scena.hh"
@@ -15,6 +16,8 @@
 
 
 using namespace std;
+
+Fabryka Fabryka::_Fabryka;
 
 int main()
 {
@@ -33,6 +36,8 @@ int main()
 	cout << "s - selekcja robota" << endl;
 	cout << "z - zmiana szybkosci ruchu robota" << endl;
 	cout << "c - zmien rozmiar robota" << endl;
+	cout << "r - dodaj wybranego robota" << endl;
+	cout << "e - usun wybranego robota" << endl;
 	cout << "o - obrot robota" << endl;
 	cout << "j - jazda na wprost" << endl << endl;
 	cout << "b - obroc wybrana preszkode" << endl;
@@ -62,6 +67,12 @@ int main()
 			cout << "Podaj nowa skale robota" << endl;
 			cin >> Skala;
 			S.SkalujRobota(Skala);
+			break;
+		case 'r':
+			S.DodajRobota();
+			break;
+		case 'e':
+			S.UsunRobota();
 			break;
 		case 'o':
 			cout << "Podaj wartosc kata obrotu w stopniach" << endl;

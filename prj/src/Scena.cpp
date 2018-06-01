@@ -5,42 +5,43 @@
  */
 
 void Scena::TworzListy() {
-  shared_ptr<Robot>  R1(new Robot(Wektor2D(100.0, -150.0)));
-  shared_ptr<Robot>  R2(new Robot(Wektor2D(-100.0, -50.0)));
-  shared_ptr<Robot>  R3(new Robot(Wektor2D(-200.0, 50.0)));
 
-  shared_ptr<Sciezka>  S1(new Sciezka(Wektor2D(100.0, -150.0)));
-  shared_ptr<Sciezka>  S2(new Sciezka(Wektor2D(-100.0, -50.0)));
-  shared_ptr<Sciezka>  S3(new Sciezka(Wektor2D(-200.0, 50.0)));
+  shared_ptr<ObiektGraficzny>   WRob1 = Fabryka::Zbuduj(TO_Robot,100.0,-150.0);
+  shared_ptr<ObiektGraficzny>   WRob2 = Fabryka::Zbuduj(TO_Robot,-100.0,-50.0);
+  shared_ptr<ObiektGraficzny>   WRob3 = Fabryka::Zbuduj(TO_Robot,-200.0,50.0);
 
-  shared_ptr<Przeszkoda> P1(new Przeszkoda(0.0, 0.0, 50.0, 80.0));
-  shared_ptr<Przeszkoda> P2(new Przeszkoda(200.0, 200.0, 100.0, 50.0));
-  shared_ptr<Przeszkoda> P3(new Przeszkoda(-250.0, 270.0, 50.0, 20.0));
-  shared_ptr<Przeszkoda> P4(new Przeszkoda(-280.0, -280.0, 150.0, 10.0));
+  shared_ptr<ObiektGraficzny>   WS1 = Fabryka::Zbuduj(TO_Sciezka,100.0,-150.0);
+  shared_ptr<ObiektGraficzny>   WS2 = Fabryka::Zbuduj(TO_Sciezka,-100.0,-50.0);
+  shared_ptr<ObiektGraficzny>   WS3 = Fabryka::Zbuduj(TO_Sciezka,-200.0,50.0);
 
-  WR = R1;
-  WS = S1;
+  shared_ptr<ObiektGraficzny>   WP1 = Fabryka::Zbuduj(TO_Przeszkoda,0.0, 0.0, 50.0, 80.0,0);
+  shared_ptr<ObiektGraficzny>   WP2 = Fabryka::Zbuduj(TO_Przeszkoda,200.0, 200.0, 100.0, 50.0,0);
+  shared_ptr<ObiektGraficzny>   WP3 = Fabryka::Zbuduj(TO_Przeszkoda,-250.0, 270.0, 50.0, 20.0,0);
+  shared_ptr<ObiektGraficzny>   WP4 = Fabryka::Zbuduj(TO_Przeszkoda,-230.0, -230.0, 150.0, 10.0,0);
 
-  LOb.push_back(R1);
-  LOb.push_back(R2);
-  LOb.push_back(R3);
-  LOb.push_back(S1);
-  LOb.push_back(S2);
-  LOb.push_back(S3);
-  LOb.push_back(P1);
-  LOb.push_back(P2);
-  LOb.push_back(P3);
-  LOb.push_back(P4);
-  LR.push_back(R1);
-  LR.push_back(R2);
-  LR.push_back(R3);
-  LP.push_back(P1);
-  LP.push_back(P2);
-  LP.push_back(P3);
-  LP.push_back(P4);
-  LS.push_back(S1);
-  LS.push_back(S2);
-  LS.push_back(S3);
+  WR = static_pointer_cast<Robot>(WRob1);
+  WS = static_pointer_cast<Sciezka>(WS1);
+
+  LOb.push_back(WRob1);
+  LOb.push_back(WRob2);
+  LOb.push_back(WRob3);
+  LOb.push_back(WS1);
+  LOb.push_back(WS2);
+  LOb.push_back(WS3);
+  LOb.push_back(WP1);
+  LOb.push_back(WP2);
+  LOb.push_back(WP3);
+  LOb.push_back(WP4);
+  LR.push_back(static_pointer_cast<Robot>(WRob1));
+  LR.push_back(static_pointer_cast<Robot>(WRob2));
+  LR.push_back(static_pointer_cast<Robot>(WRob3));
+  LP.push_back(static_pointer_cast<Przeszkoda>(WP1));
+  LP.push_back(static_pointer_cast<Przeszkoda>(WP2));
+  LP.push_back(static_pointer_cast<Przeszkoda>(WP3));
+  LP.push_back(static_pointer_cast<Przeszkoda>(WP4));
+  LS.push_back(static_pointer_cast<Sciezka>(WS1));
+  LS.push_back(static_pointer_cast<Sciezka>(WS2));
+  LS.push_back(static_pointer_cast<Sciezka>(WS3));
 }
 
 
@@ -206,9 +207,9 @@ void Scena::DodajPrzeszkode() {
   cin >> Szer;
   cin >> Wys;
   cin >> Obr;
-  shared_ptr<Przeszkoda> P(new Przeszkoda(x, y, Szer, Wys, Obr));
-  LP.push_back(P);
-  LOb.push_back(P);
+  shared_ptr<ObiektGraficzny>   WOb = Fabryka::Zbuduj(TO_Przeszkoda,x,y,Szer,Wys,Obr);
+  LOb.push_back(WOb);
+  LP.push_back(static_pointer_cast<Przeszkoda>(WOb));
   ZapiszDoPliku();
 }
 
@@ -246,13 +247,21 @@ void Scena::UsunPrzeszkode() {
   ZapiszDoPliku();
 }
 
-/*!
- * \brief Metoda selekcjonujaca robota na podstawie jego polozenia. Zmienia rowniez obecna
- * sciezke na sciezke przypisana do tego robota
- */
+void Scena::DodajRobota () {
+  double x,y;
+  cout << "Podaj wspolrzedne x i y miejsca w ktorym ma sie znalezc robot:" << endl;
+  cin >> x;
+  cin >> y;
+  shared_ptr<ObiektGraficzny>   WRob = Fabryka::Zbuduj(TO_Robot,x,y);
+  shared_ptr<ObiektGraficzny>   WSc = Fabryka::Zbuduj(TO_Sciezka,x,y);
+  LOb.push_back(WRob);
+  LOb.push_back(WSc);
+  LR.push_back(static_pointer_cast<Robot>(WRob));
+  LS.push_back(static_pointer_cast<Sciezka>(WSc));
+  ZapiszDoPliku();
+}
 
-void Scena::SelekcjaRobota() {
-  Wektor2D Wek, Tmp;
+void Scena::UsunRobota () {
   unsigned int Num = 0, rob;
   auto iterR = LR.begin();
   auto iterS = LS.begin();
@@ -261,24 +270,51 @@ void Scena::SelekcjaRobota() {
     ++Num;
     cout << Num << ".  " << wR->ZwrocPolozenie() << endl << endl; 
   }
+  Num = 0;
+  cout << "Wprowadz numer robota ktorego chcesz usunac" << endl;
+  cin >> rob;
+  for(const shared_ptr<Robot> &wR : LR) {
+    ++Num;
+    if(Num == rob) {
+      WR = *iterR;
+      WS = *iterS;
+    }
+    ++iterR;
+    ++iterS;
+  }
+  LR.remove(WR);
+  LOb.remove(WR);
+  LS.remove(WS);
+  LOb.remove(WS);
+  Lacze.UsunWszystkieNazwyPlikow();
+  ZapiszDoPliku();
+}
+
+/*!
+ * \brief Metoda selekcjonujaca robota na podstawie jego polozenia. Zmienia rowniez obecna
+ * sciezke na sciezke przypisana do tego robota
+ */
+
+void Scena::SelekcjaRobota() {
+  unsigned int Num = 0, rob;
+  auto iterR = LR.begin();
+  auto iterS = LS.begin();
+  cout << "Dostepne roboty to:" << endl;
+  for(const shared_ptr<Robot>  &wR : LR) {
+    ++Num;
+    cout << Num << ".  " << wR->ZwrocPolozenie() << endl << endl; 
+  }
+  Num = 0;
   cout << "Wprowadz numer robota ktorym chcesz sterowac" << endl;
   cin >> rob;
-  switch(rob){
-    case 1:
-      WR = LR.front();
-      WS = LS.front();
-      break;
-    case 2:
-      WR = *(++iterR);
-      WS = *(++iterS);
-      break;
-    case 3:
-      WR = LR.back();
-      WS = LS.back();
-      break;
-    default:
-      std::cerr << "Nie istnieje robot o podanym numerze";
-      break;
+  for(const shared_ptr<Robot> &wR : LR) {
+    ++Num;
+    if(Num == rob) {
+      WR = *iterR;
+      WS = *iterS;
+    }
+    ++iterR;
+    ++iterS;
   }
 }
 
@@ -364,7 +400,7 @@ bool Scena::SprawdzCzyKolizjaZPrzeszkoda()
 {
   Zbior_Wierzcholkow ZW_tmp;
   Wektor2D PR, TMP;
-  int i, j = 0;
+  int j = 0;
   double Tabx[3], Taby[3], rozmiar;
   bool CzyKolizja = false;
   PR = WR->ZwrocPolozenie();
